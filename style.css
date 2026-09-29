@@ -262,10 +262,14 @@ canvas#jrRadar{position:relative;width:100%;height:100%;display:block}
   .mobcta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;justify-content:center;
     padding:14px;border-radius:14px;font-family:var(--font-b);font-weight:800;color:var(--on-cta);
     background:var(--cta);box-shadow:0 12px 32px -8px var(--ring)}
+  /* app.js: tucked away while the hero's own CTA is on screen (no duplicate) */
+  .mobcta.ready{transition:transform .25s ease,opacity .25s ease}
+  .mobcta.away{transform:translateY(calc(100% + 24px));opacity:0;pointer-events:none}
 }
 @media (prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important}
   .fresh .live{animation:none}
+  .mobcta.ready{transition:none}
   .btn:hover,.cat:hover,.job:hover{transform:none}
 }
 

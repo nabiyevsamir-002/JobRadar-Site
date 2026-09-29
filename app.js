@@ -36,6 +36,8 @@
     // on-site search with facet filters (all / web / telegram / today)
     var box=document.getElementById("jrSearch"), out=document.getElementById("jrResults");
     var data=window.__JOBS||[], none=window.__noneText||"", flt="all";
+    function p2(n){return (n<10?"0":"")+n;}
+    var now=new Date(), today=now.getFullYear()+"-"+p2(now.getMonth()+1)+"-"+p2(now.getDate());
     function runSearch(){
       if(!out) return;
       var q=box?box.value.trim().toLowerCase():"";
@@ -46,7 +48,7 @@
         if(q.length>=2 && d[0].toLowerCase().indexOf(q)<0) continue;
         if(flt==="web" && d[2]!=="web") continue;
         if(flt==="tg" && d[2]!=="tg") continue;
-        if(flt==="today" && d[3]!==1) continue;
+        if(flt==="today" && d[3]!==today) continue;
         r.push(d);
       }
       if(!r.length){out.innerHTML='<div class="sr">'+none+'</div>';return;}
@@ -188,6 +190,15 @@
       window.addEventListener("resize",function(){size();draw();});
       if(reduce){BLIPS.forEach(function(b){b.lit=Math.max(b.lit,.7);}); draw();}
       else requestAnimationFrame(tick);
+    }
+    // sticky mobile CTA: hidden while the hero's own CTA is visible, so the two
+    // identical buttons never stack; the first toggle is instant (no slide on load)
+    var mc=document.querySelector(".mobcta"), hc=document.querySelector(".hero .cta-row");
+    if(mc && hc && "IntersectionObserver" in window){
+      new IntersectionObserver(function(es){
+        mc.classList.toggle("away",es[0].isIntersecting);
+        requestAnimationFrame(function(){mc.classList.add("ready");});
+      }).observe(hc);
     }
     // PWA
     if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js").catch(function(){});}
