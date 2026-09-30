@@ -85,13 +85,10 @@ h2.sec{font-size:clamp(1.55rem,2.2vw + .7rem,2.4rem);font-weight:800;font-stretc
 .nav-in{max-width:1152px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;gap:8px}
 .brand{display:inline-flex;align-items:center;gap:10px;color:var(--text);font-family:var(--font-d);
   font-weight:800;font-size:1.12rem;font-stretch:116%;letter-spacing:-.02em;border-radius:12px}
-.brand .mark{width:36px;height:36px;flex:none;display:grid;place-items:center;border-radius:12px;
-  background:var(--surface-2);border:1px solid color-mix(in srgb,var(--border) 70%,transparent);box-shadow:var(--glass-hi),var(--shadow)}
-.brand .mark svg{width:28px;height:28px}
-.lm-ring{stroke:var(--brand);stroke-opacity:.55}.lm-ring2{stroke:var(--brand);stroke-opacity:.4}
-.lm-sweep{fill:var(--signal);fill-opacity:.85;transform-origin:18px 18px;transition:transform .7s ease}
-.lm-dot{fill:var(--text)}
-.brand:hover .lm-sweep{transform:rotate(120deg)}
+.brand .mark{width:38px;height:38px;flex:none;overflow:hidden;border-radius:11px;background:#0A1628;
+  box-shadow:0 0 0 1px var(--glass-edge),var(--shadow);transition:transform .3s ease,box-shadow .3s ease}
+.brand .mark img{display:block;width:100%;height:100%}
+.brand:hover .mark{transform:rotate(-4deg) scale(1.05);box-shadow:0 0 0 1px rgba(182,255,0,.45),0 8px 24px -6px rgba(182,255,0,.45)}
 .brand .az{margin-left:2px;border-radius:6px;padding:3px 6px;background:var(--cta);color:var(--on-cta);
   font-family:var(--font-m);font-size:.62rem;font-weight:600;letter-spacing:.08em;font-stretch:100%;vertical-align:2px}
 .nav-links{display:flex;gap:2px;margin-left:22px}
@@ -372,9 +369,9 @@ h2.sec{font-size:clamp(1.55rem,2.2vw + .7rem,2.4rem);font-weight:800;font-stretc
 .tg-cta .h{font-family:var(--font-m);font-size:.9rem;color:var(--muted)}
 .chat{width:100%;max-width:24rem;margin:0 auto;padding:16px;border-radius:28px}
 .chat-head{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid color-mix(in srgb,var(--border) 50%,transparent)}
-.chat-head .av{width:40px;height:40px;flex:none;display:grid;place-items:center;border-radius:50%;background:var(--bg-deep);
-  box-shadow:inset 0 0 0 1px var(--border)}
-.chat-head .av svg{width:28px;height:28px}
+.chat-head .av{width:40px;height:40px;flex:none;overflow:hidden;border-radius:50%;background:#0A1628;
+  box-shadow:0 0 0 1px var(--border)}
+.chat-head .av img{display:block;width:100%;height:100%}
 .chat-head p{margin:0}.chat-head .nm{font-weight:600}.chat-head .bt{font-family:var(--font-m);font-size:.7rem;color:var(--signal)}
 .chat-body{display:grid;gap:10px;padding-top:16px;font-size:.9rem}
 .bubble{margin:0;max-width:85%;padding:10px 14px;border-radius:18px 18px 18px 6px;background:var(--surface-2)}
